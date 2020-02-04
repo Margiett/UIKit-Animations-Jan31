@@ -14,13 +14,42 @@
                     <view key="view" contentMode="scaleToFill" id="i5E-1m-8Ts">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="duck" translatesAutoresizingMaskIntoConstraints="NO" id="els-1k-ZVU">
+                                <rect key="frame" x="103.5" y="344.5" width="207" height="207"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="els-1k-ZVU" secondAttribute="height" multiplier="1:1" id="kjF-VD-FbE"/>
+                                </constraints>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-30-weR">
+                                <rect key="frame" x="38" y="710" width="338" height="31"/>
+                                <connections>
+                                    <action selector="sliderDidChange:" destination="E0Y-FW-HpX" eventType="valueChanged" id="Rhk-mG-x63"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QTf-Lh-GFo" firstAttribute="bottom" secondItem="Duo-30-weR" secondAttribute="bottom" constant="122" id="4ka-AK-CDx"/>
+                            <constraint firstItem="QTf-Lh-GFo" firstAttribute="trailing" secondItem="Duo-30-weR" secondAttribute="trailing" constant="40" id="JaE-pK-pRQ"/>
+                            <constraint firstItem="els-1k-ZVU" firstAttribute="centerX" secondItem="i5E-1m-8Ts" secondAttribute="centerX" id="M3P-UG-wVu"/>
+                            <constraint firstItem="els-1k-ZVU" firstAttribute="centerY" secondItem="i5E-1m-8Ts" secondAttribute="centerY" id="PjB-3L-pI6"/>
+                            <constraint firstItem="els-1k-ZVU" firstAttribute="width" secondItem="i5E-1m-8Ts" secondAttribute="width" multiplier="0.5" id="hlE-FT-CsP"/>
+                            <constraint firstItem="Duo-30-weR" firstAttribute="leading" secondItem="QTf-Lh-GFo" secondAttribute="leading" constant="40" id="kQA-Bh-4tI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QTf-Lh-GFo"/>
                     </view>
+                    <connections>
+                        <outlet property="duckImage" destination="els-1k-ZVU" id="rgC-CB-Bmn"/>
+                        <outlet property="slider" destination="Duo-30-weR" id="PUr-Sf-2Dn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RcP-mp-55G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="83"/>
+            <point key="canvasLocation" x="86.956521739130437" y="82.366071428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="duck" width="800" height="800"/>
+    </resources>
 </document>

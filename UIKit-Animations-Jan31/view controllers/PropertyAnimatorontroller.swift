@@ -10,21 +10,32 @@ import UIKit
 
 class PropertyAnimatorontroller: UIViewController {
 
+    @IBOutlet weak var duckImage: UIImageView!
+    @IBOutlet weak var slider: UISlider!
+    
+    // need an instance to a UIViewPropertyAnimator
+   private var animator: UIViewPropertyAnimator!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemPink
+        //instantiate the animator property
+        animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeInOut, animations: {
+            // here we declare the animation
+            //perform a tranform
+            self.duckImage.transform = CGAffineTransform(scaleX: 3.5, y: 2)
+            
+        })
 
-        // Do any additional setup after loading the view.
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func sliderDidChange(_ sender: UISlider) {
+        
+        animator.fractionComplete = CGFloat(sender.value)
+        
     }
-    */
+    
+    
 
 }

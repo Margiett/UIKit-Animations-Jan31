@@ -31,17 +31,25 @@ Properties that can be animated
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        scaleAnimation()
+        //
+         //scaleAnimation()
+        view = sampleAnimationsViewInstance
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //pulsatingAnimation()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        //scaleAnimation2()
+        scaleAnimation()
     }
     
     private func pulsatingAnimation(){
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: [.repeat, .autoreverse, .curveLinear], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.repeat, .autoreverse, .curveLinear], animations: {
             // animation block
             self.sampleAnimationsViewInstance.pursuitLogo.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         }) { (done) in
@@ -57,10 +65,11 @@ Properties that can be animated
     
     private func scaleAnimation(){
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: [], animations: {
+        // the duration will affect how long will the animation  run
+        UIView.animate(withDuration: 1.5, delay: 0.0, options: [], animations: {
             // this is a 3rd of a second
                        // any transform value of 1.0 represents the identity of the view..
-                       self.sampleAnimationsViewInstance.pursuitLogo.transform = CGAffineTransform(scaleX: 20.0, y: 20.0)
+                       self.sampleAnimationsViewInstance.pursuitLogo.transform = CGAffineTransform(scaleX: 10.0, y: 10.0)
                        self.sampleAnimationsViewInstance.pursuitLogo.alpha = 0.0
                        //self.sampleAnimationsViewInstance.pursuitLogo.transform3D = CATransform3D(0.9)
         /*
@@ -81,7 +90,13 @@ Properties that can be animated
                 
             }
         }
-        
+    private func scaleAnimation2() {
+        UIView.animate(withDuration: 1.5) {
+            self.sampleAnimationsViewInstance.pursuitLogo.transform = CGAffineTransform(scaleX: 10.0, y: 10.0)
+            self.sampleAnimationsViewInstance.pursuitLogo.alpha = 0.0
+            
+        }
+    }
     
 
     
