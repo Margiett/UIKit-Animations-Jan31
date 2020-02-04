@@ -38,19 +38,60 @@ class AnimationsTabController: UITabBarController {
         return viewController
     }()
     
-    
+    private lazy var transitionAnimationsVS: TranstionAnimationController = {
+           
+           //MARK: Step 1: get instance of storyboard
+           let constraintsAnimationStoryboard = UIStoryboard(name: "TranstionAnimation", bundle: nil)
+           
+           /*
+           // before the actual view controller
+           let viewcontroller = ConstraintsAnimationController()
+           viewcontroller.tabBarItem = UITabBarItem(title: "Constraints Animation", image: UIImage(systemName: "2.circle"), tag: 1)
+           return viewcontroller
+    */
+           // step 2: instantiate view controller from the storyboard instace
+           guard let viewController = constraintsAnimationStoryboard.instantiateViewController(withIdentifier: "TranstionAnimationController") as? TranstionAnimationController else {
+               fatalError("couldnt access the ConstraintsAnimationController")
+           }
+           
+           viewController.tabBarItem = UITabBarItem(title: "Transistions Animation", image: UIImage(systemName: "3.circle"), tag: 2)
+           
+           return viewController
+       }()
+       
+       
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // set view controllers for the tab bar.. in the app there will be two colors
-        
-        // subclass it in order to gain access to the other view controller programmatically.
-        // they need to instances()of the controller otherwise it wont work
-        viewControllers = [sampleAnimationVC, constraintsAnimationVC]
-        
-    //viewControllers = [SampleAnimationsViewController(), ConstraintsAnimationController()]
-        
-    }
+       override func viewDidLoad() {
+           super.viewDidLoad()
+           // set view controllers for the tab bar.. in the app there will be two colors
+           
+           // subclass it in order to gain access to the other view controller programmatically.
+           // they need to instances()of the controller otherwise it wont work
+           viewControllers = [sampleAnimationVC, constraintsAnimationVC, transitionAnimationsVS, propertyAnimatorVC]
+           
+       //viewControllers = [SampleAnimationsViewController(), ConstraintsAnimationController()]
+           
+       }
+    private lazy var propertyAnimatorVC: PropertyAnimatorontroller = {
+           
+           //MARK: Step 1: get instance of storyboard
+           let constraintsAnimationStoryboard = UIStoryboard(name: "PropertyAnimator", bundle: nil)
+           
+           /*
+           // before the actual view controller
+           let viewcontroller = ConstraintsAnimationController()
+           viewcontroller.tabBarItem = UITabBarItem(title: "Constraints Animation", image: UIImage(systemName: "2.circle"), tag: 1)
+           return viewcontroller
+    */
+           // step 2: instantiate view controller from the storyboard instace
+           guard let viewController = constraintsAnimationStoryboard.instantiateViewController(withIdentifier: "PropertyAnimatorontroller") as? PropertyAnimatorontroller else {
+               fatalError("couldnt access the ConstraintsAnimationController")
+           }
+           
+           viewController.tabBarItem = UITabBarItem(title: "Property Animation", image: UIImage(systemName: "4.circle"), tag: 3)
+           
+           return viewController
+       }()
     
     
     

@@ -87,3 +87,11 @@ Properties that can be animated
     
 
 }
+
+//MARK: Notes:
+
+/*
+ - scale: manipulates size of object
+ - rotation: rotated an object clockwise or counter clockwise using radians 
+ - translation: move an object from point A to point B
+ */
